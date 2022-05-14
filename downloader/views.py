@@ -47,18 +47,17 @@ def download(request):
       title =YouTube(url).title
       stream = YouTube(url).streams
       print(title)
-      resolutions=['240p','360p', '480p', '720p']
       global directory
       directory = r'/home/aliahmed78666/youtubedownloader/downloader/static/downloader'
       files_in_directory = os.listdir(directory)
       filtered_files = [file for file in files_in_directory if file.endswith(".mp4")]
       for file in filtered_files:
-       path_to_file = os.path.join(directory, file)
-       os.remove(path_to_file)
-       resolutions=[]
-       for i in stream:
-           resolutions.append(i.resolution)
-           resolutions= list(dict.fromkeys(resolutions))
+        path_to_file = os.path.join(directory, file)
+        os.remove(path_to_file)
+      resolutions=[]
+      for i in stream:
+            resolutions.append(i.resolution)
+            resolutions= list(dict.fromkeys(resolutions))
       filtered_filesmp3 = [file for file in files_in_directory if file.endswith(".mp3")]
       for file in filtered_filesmp3:
            path_to_file = os.path.join(directory, file)
